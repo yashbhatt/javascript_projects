@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title></title>
+
+        <style>
+            img {
+                max-height: 60vh;
+                width:100%;
+                padding: 0px;
+                margin: 0px;
+            }
+            body {
+                background-color: lightgray;
+                margin: 0px;
+                padding: 0px;
+            }
+            .button_aligner1 {
+                position: absolute;
+                top: 30vh
+            }
+            .button_aligner2 {
+                position: absolute;
+                left: 97.5%;
+                top: 30vh;
+            }
+            .controls {
+                height: 60vh;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="controls">
+            <button class="button_aligner1" onclick="previous()">Previous</button>
+            <button class="button_aligner2" onclick="next()">Next</button>
+            <img src="../javascript image slider/media/1.jpg" alt="" id="slider">
+        </div>
+
+        
+
+        <script>
+        image_count = 1;
+        setInterval(function () {next();}, 5000);
+
+        var previous_list = [];
+        function next () {
+            image_count += 1;
+            document.getElementById('slider').setAttribute('src' , '../javascript image slider/media/' + String(Math.abs(image_count))+'.jpg');
+            if(image_count == 5) {
+                image_count = 0;
+            }
+        }
+        function previous () {
+            image_count -= 1;
+            if (image_count == 0) {
+                image_count = 5;
+            }
+            document.getElementById('slider').setAttribute('src' , '../javascript image slider/media/' + String(Math.abs(image_count))+'.jpg');
+        }
+    </script>
+    </body>
+</html>
